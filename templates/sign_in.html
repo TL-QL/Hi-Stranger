@@ -1,0 +1,214 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: .95;
+    }
+    h1{
+        font-family: 'Indie Flower', cursive;
+    }
+    form {
+        width: 450px;
+        min-height: 500px;
+        height: auto;
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        padding: 2%;
+        background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
+    }
+    form .con {
+        display: -webkit-flex;
+        display: flex;
+        
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        
+        margin: 0 auto;
+    }
+    
+    header {
+        margin: 2% auto 10% auto;
+        text-align: center;
+    }
+    header h2 {
+        font-family: 'Indie Flower', cursive;
+        font-size: 380%;
+        color: #3e403f;
+    }
+    header p {
+        letter-spacing: 0.05em;
+        font-size: 130%;
+    }
+    .input-item {
+        background: #fff;
+        color: #333;
+        padding: 14.5px 0px 15px 9px;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .form-input{
+        width: 300px;
+        height: 50px;
+        
+        margin-top: 2%;
+        padding: 15px;
+        
+        font-size: 16px;
+        color: #5E6472;
+        
+        outline: none;
+        border: none;
+        
+        border-radius: 0px 5px 5px 0px;
+        transition: 0.2s linear;
+        
+    }
+    .txt-input{
+        width: 260px;
+    }
+    button {
+        
+        display: inline-block;
+        color: #252537;
+        
+        width: 100%;
+        height: 50px;
+        
+        padding: 0 20px;
+        background: #fff;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+    }
+    .submits {
+        width: 100%;
+        display: inline-block;
+        margin-left: 2%;
+    }
+    .log-in{
+        font-size: 100%;
+        display: inline-block;
+        color: #252537;
+        
+        width: 100%;
+        height: 50px;
+        
+        padding: 0 20px;
+        background: #fff;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+    }
+    .sign-up {
+        background: #B8F2E6;
+        width: 100%;
+    }
+    button:hover {
+        transform: translatey(3px);
+        box-shadow: none;
+    }
+    button:hover {
+        animation: ani9 0.4s ease-in-out infinite alternate;
+    }
+    a{
+        text-decoration:none;
+        color: black;
+    }
+    a:hover
+    {
+        text-decoration:none;
+        color: #4876FF;
+        
+    }
+    .footer-phrase {
+        font-family: Helvetica;
+        color: rgba(228, 88, 174, 0.4);
+        font-weight: 100;
+        font-size: 0.8em;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-phrase a {
+        text-decoration: none;
+        color: rgb(228, 88, 174);
+    }
+    @keyframes ani9 {
+        0% {
+            transform: translateY(3px);
+        }
+        100% {
+            transform: translateY(5px);
+        }
+    }
+    
+    </style>
+    <div class="overlay">
+        <form action="{{ url_for('login') }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="con">
+                <header class="head-form">
+                    <h2>Sign In</h2>
+                    <p>sign in here using your username</p>
+                </header>
+                <br>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="text" placeholder="@Username" name="username" required>
+                    <br>
+                        <span class="input-item">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input class="form-input" type="password" placeholder="@Password" id="pwd"  name="password" name="password" required>
+                        <br>
+                        <input type="submit" value="Sign in" class="log-in" name="Login">
+                </div>
+                <br>
+                <div class="other">
+                    <button class="btn submits sign-up"><a href="./sign_up.html">Sign Up</a>
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</html>
+

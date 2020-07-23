@@ -1,0 +1,151 @@
+<html>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: -webkit-linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+            background: linear-gradient(to top, #97FFFF 50%, #fed6e3 100%);
+        }
+    h1{
+        font-weight: 200;
+        font-family: 'Indie Flower', cursive;
+        color: black;
+        text-align: center;
+        font-size: 380%;
+        letter-spacing: 0px;
+        letter-spacing: 0.05rem;
+        margin-top: 5%;
+    }
+    img{
+        border-radius: 50%;
+    }
+    table{
+        width:90%;
+        table-layout: auto;
+    }
+    .tbl-header{
+        background-color: rgba(255,255,255,0.3);
+    }
+    th{
+        padding: 15px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        color: black;
+        text-transform: uppercase;
+    }
+    td{
+        padding: 15px;
+        text-align: center;
+        vertical-align:middle;
+        font-weight: 300;
+        font-size: 15px;
+        color: #698B69;
+        border-bottom: solid 1px rgba(255,255,255,0.1);
+    }
+    .vertical-list li {
+        float: left;
+    }
+    li {
+        list-style: none;
+        color: black;
+        width: 150px;
+        margin-left: 6%;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    a:hover, a:focus {
+        color: #698B69;
+        text-decoration: none;
+    }
+    section{
+        margin: 5%;
+    }
+    .log-in{
+        font-size: 100%;
+        display: inline-block;
+        color: #698B69;
+        
+        width: 100px;
+        height: 50px;
+        
+        background: #fff;
+        opacity: 0.5;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+    }
+    input:hover{
+        color: black;
+    }
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+    }
+    </style>
+    <body>
+    
+        <section>
+                <nav role="navigation">
+                    <ul class="vertical-list">
+                        <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                        <li><a href="{{ url_for('delete') }}">Delete Account</a></li>
+                        <li><a href="./welcome.html" >Home</a></li>
+                        <li><a href="./profile.html" >Profile</a></li>
+                        <li><a href="./liketable.html">Like List</a></li>
+                    </ul>
+                </nav>
+            <!--for demo wrap-->
+            <br>
+            <h1>Like</h1>
+            <div class="tbl-header">
+                <table cellspacing="0">
+                    <tr>
+                        <th>Photo</th>
+                        <th>UserName</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Wage</th>
+                        <th>Occupation</th>
+                        <th>Email</th>
+                        <th>Like</th>
+                    </tr>
+                    {% for user in result %}
+                    <tr>
+                        <td width = 60px><img src="{{url_for('static', filename='images/' + user[6])}}"></td>
+                        <td width = 60px>{{user[0]}}</td>
+                        <td width = 60px>{{user[1]}}</td>
+                        <td width = 60px>{{user[2]}}</td>
+                        <td width = 100px>{{user[3]}}</td>
+                        <td width = 100px>{{user[4]}}</td>
+                        <td width = 100px>{{user[5]}}</td>
+                        <td width = 100px><p><a href="{{ url_for('likepeople', username=user[0]) }}">Like</a></p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </body>
+</html>

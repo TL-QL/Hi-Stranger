@@ -1,0 +1,147 @@
+<html>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    
+        body {
+            font-family: 'Fauna One', serif;
+            font-size: 20px;
+            height: 100%;
+        }
+    
+        li {
+            list-style: none;
+            color: white;
+        }
+    
+        a {
+            color: white;
+        }
+    
+        a:hover, a:focus {
+            color: white;
+            text-decoration: none;
+        }
+    
+    
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 4%;
+            font-size: 412.5%;
+        }
+    h5{
+        color: white;
+        text-align: center;
+    }
+    
+        h1 > small {
+            display: block;
+            color: white;
+        }
+        h1 .logo {
+            font-size: 230%;
+            font-family: 'Brush Script MT', cursive;
+            width: 200px;
+            margin-left: -20px;
+        }
+        .vertical-list li {
+            float: left;
+        }
+    .overflow {
+        overflow: hidden;
+    }
+    
+    .overlay {
+        background-color: rgba(4,14,22,.83);
+        height: 100%;
+        width: 100%;
+        padding-bottom: 80px;
+    }
+    #home {
+        background: url("https://static.pexels.com/photos/232/apple-iphone-books-desk-large.jpg") no-repeat;
+        width: 100%;
+        background-size: cover;
+    }
+    #home nav {
+        margin-left: 10%;
+        width: 100%;
+        padding-top: 80px;
+    }
+    #home nav ul {
+        overflow: hidden;
+    }
+    #home nav ul li {
+        width: 18%;
+    }
+    #home nav a {
+        display: table-cell;
+    }
+    
+    #home nav.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        z-index: 999;
+        padding: 0;
+        transition: background-color .8s;
+        
+    }
+    
+    #home nav.fixed ul {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 790px) {
+        body {
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 570px) {
+        
+        #home nav {
+            width: inherit;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: 300%;
+        }
+    }
+    a{
+        text-decoration:none;
+        color: white;
+    }
+    a:hover
+    {
+        text-decoration:none;
+        color: #698B69;;
+        
+    }
+    </style>
+    <body>
+        <section id="home">
+            <div class="overlay">
+                <nav role="navigation">
+                    <ul class="vertical-list">
+                        <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                        <li><a href="{{ url_for('delete') }}">Delete Account</a></li>
+                        <li><a href="./profile.html">Profile</a></li>
+                        <li><a href="./likepeople.html">Like</a></li>
+                        <li><a href="./liketable.html">Like List</a></li>
+                    </ul>
+                </nav>
+                <div class="container">
+                    <h1><small>Welcome to</small><span class="logo">Hi, Stranger!</span></h1>
+                    <h5>You can customize your photo after you enter our Welcome page and click on Profile.</h5>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

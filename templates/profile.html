@@ -1,0 +1,360 @@
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        body{
+            margin: 0;
+            height: 130%;
+        }
+    p{
+        font-family: 'Open Sans', sans-serif;
+        color: #000;
+        line-height: 5px;
+    }
+    input {
+        border: none;
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    
+    ::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.65);
+    }
+    
+    ::-webkit-input-placeholder .input-line:focus +::input-placeholder {
+        color: #fff;
+    }
+    
+    .highlight {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 400;
+        cursor: pointer;
+        transition: color .2s ease;
+    }
+    
+    .highlight:hover {
+        color: #fff;
+        transition: color .2s ease;
+    }
+    .input-line:focus {
+        outline: none;
+        border-color: #fff;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    
+    .ghost-round {
+        cursor: pointer;
+        background: none;
+        border: 1px solid rgba(211, 211, 211);
+        border-radius: 25px;
+        color: rgba(255, 255, 255, 0.65);
+        -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+        font-size: 19px;
+        font-size: 1.2rem;
+        font-family: roboto;
+        font-weight: 300;
+        line-height: 2.5em;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    
+    .ghost-round:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    
+    .input-line {
+        background: none;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.02rem;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(211, 211, 211);
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    
+    .input-line-age {
+        background: none;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.02rem;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(211, 211, 211);
+        width: 30%;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    
+    .full-width {
+        width: 100%;
+    }
+    .container {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: .95;
+        height: 100%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    
+    .content {
+        padding-left: 25px;
+        padding-right: 25px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+        flex-flow: column;
+        z-index: 5;
+    }
+    
+    .welcome {
+        font-weight: 200;
+        font-family: 'Indie Flower', cursive;
+        color: black;
+        
+        text-align: center;
+        font-size: 380%;
+        letter-spacing: 0px;
+        letter-spacing: 0.05rem;
+    }
+    .tt{
+        font-family: 'Indie Flower', cursive;
+        font-size: 130%;
+        font-weight: 1000;
+    }
+    
+    
+    .window {
+        z-index: 100;
+        font-family: roboto;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+        flex-flow: column;
+        box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        height: 90%;
+        width: 450px;
+        
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        padding: 2%;
+        background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
+    }
+    
+    @media (max-width: 500px) {
+        .window {
+            width: 100%;
+            height: 100%;
+        }
+        .overlay {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .gender {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        line-height: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: black;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .gender input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 10px;
+        width: 10px;
+        background-color: white;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+    }
+    .gender:hover input ~ .checkmark {
+        background-color: #eee;
+    }
+    .gender input:checked ~ .checkmark {
+        background: black;
+    }
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    .gender input:checked ~ .checkmark:after {
+        display: block;
+    }
+    .gender .checkmark:after {
+        top: 2.5px;
+        left: 2px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #696969;
+    }
+    ::placeholder{
+        font-family: 'Open Sans', sans-serif;
+        color: #698B69;
+    }
+    .left{
+        float: left;
+    }
+    
+    .right{
+        margin-top: 8px;
+        margin-left: 150px;
+    }
+    a{
+        text-decoration:none;
+        color: black;
+    }
+    a:hover
+    {
+        text-decoration:none;
+        color: #698B69;
+    }
+    .sub{
+        color: black;
+        margin-top: 5%;
+    }
+    .sub:hover{
+        color: #698B69
+    }
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .inputfile + label{
+
+        width: 98%;
+        margin-top: 5%;
+        cursor: pointer;
+        border: 1px solid rgba(211, 211, 211);
+        border-radius: 25px;
+        color: black;
+        -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+        font-size: 19px;
+        font-size: 1.2rem;
+        font-family: roboto;
+        font-weight: 300;
+        line-height: 2.5em;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        display: inline-block;
+        padding: 3px;
+    }
+    .inputfile + label:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #698B69;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    img {
+        z-index: 105;
+        position: absolute;
+        left: 25%;
+        top: 10%;
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+    }
+    </style>
+    <body>
+        <div class='container'>
+            <img src="{{phototype}}">
+            <div class='window'>
+                <!--<img src={{ current_user.picture }}  onerror="https:farm5.staticflickr.com4223/34189680164_03d93f2598_b.jpg" name = "picture">-->
+                <div class='content'>
+                    <div class='welcome'>Profile</div>
+                    <br>
+                        <!--<img src="{{ url_for('static', filename= './images/default.jpg') }}">-->
+                        <form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <p>UserName:</p>
+                            <input type='text' placeholder={{current_user.username}} class='input-line full-width' name="username" required></input>
+                            <p>Password:</p>
+                            <input type='Password' placeholder={{current_user.password}} class='input-line full-width' name="password"></input>
+                            <p>Email:</p>
+                            <input type='text' placeholder={{current_user.email}} class='input-line full-width' name="email" required></input>
+                                <div class="left">
+                                    <label>Age:</label>
+                                    <br>
+                                    <input type="number" step="any" class="input-line-age" name="age" min="18" placeholder={{current_user.age}}></input>
+                                        </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <label>Monthly Wage:</label>
+                                <br>
+                                <input type="number" step="any" class="input-line-age" name="wage" min="1000" placeholder={{current_user.wage}}></input>
+                                <p>Occupation:</p>
+                                <input type='text' placeholder={{current_user.occupation}} class='input-line full-width' name="occupation"></input>
+                                <input type="file" multiple accept="image/*" name="picture" id="picture" class="inputfile">
+                                <label for="picture"><center>Update Photo<i class="fa fa-upload"></i></center></label>
+                                <input type="submit" value="Finish Editing" class="ghost-round full-width sub" name="update">
+                                <button class="ghost-round full-width sub"><a href="./welcome.html">Discard Editing</a>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </body>
+</html>
